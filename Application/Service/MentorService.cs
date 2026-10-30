@@ -8,45 +8,39 @@ namespace Application.Service;
 public class MentorService(MentorRepository repository) : IMentorService
 {
     private MentorRepository mentorRepo = repository;
-    public void AddMentor(Mentor mentor)
+    public async Task AddMentor(Mentor mentor)
     {
-        var mento = mentorRepo.AddMentor(mentor);
+        var mento = await mentorRepo.AddMentor(mentor);
         if(mento) System.Console.WriteLine("Added succesfully !!");
         else System.Console.WriteLine("Sametings wrong !!");
     }
 
-    public void DeleteMentor(int id)
+    public async Task DeleteMentor(int id)
     {
-        var mento = mentorRepo.DeleteMentor(id);
+        var mento = await mentorRepo.DeleteMentor(id);
         if(mento) System.Console.WriteLine("Deleted succesfully !!");
         else System.Console.WriteLine("Sametings wrong !!");
     }
 
-    public void GetMentor(int id)
+    public async Task GetMentor(int id)
     {
-        var m = mentorRepo.GetMentor(id);
-        System.Console.WriteLine(m.MentorId+" | "+m.FullName+" | "+m.Email+" | "+m.Phone+" | "+m.Specialization);
+        await mentorRepo.GetMentor(id);
     }
 
-    public void GetMentor()
+    public async Task GetMentor()
     {
-        var mento = mentorRepo.GetMentors();
-        foreach (var m in mento)
-        {
-            System.Console.WriteLine(m.MentorId+" | "+m.FullName+" | "+m.Email+" | "+m.Phone+" | "+m.Specialization);
-        }
+        await mentorRepo.GetMentors();
     }
 
-    public void GetTotalMentorsCount()
+    public async Task GetTotalMentorsCount()
     {
-        var mento = mentorRepo.GetTotalMentorsCount();
-        System.Console.WriteLine(mento);
+        await mentorRepo.GetTotalMentorsCount();
     }   
 
 
-    public void UpdateMentor(Mentor mentor)
+    public async Task UpdateMentor(Mentor mentor)
     {
-        var mento = mentorRepo.UpdateMentor(mentor);
+        var mento = await mentorRepo.UpdateMentor(mentor);
         if(mento) System.Console.WriteLine("Updated succesfully !!");
         else System.Console.WriteLine("Sametings wrong !!");
     }

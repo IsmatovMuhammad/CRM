@@ -4,10 +4,10 @@ namespace Domain.Interfaces;
 
 public interface IStudentGroupRepository
 {
-    bool AddStudentGroup(StudentGroup studentGroup);
-    bool DeleteStudentGroup(int id);
-    bool UpdateStudentGroup(StudentGroup studentGroup);
-    StudentGroup GetStudentGroup(int id);
-    List<StudentGroup> GetStudentGroups();
-    int GetAllStartDates();
+    Task<bool> AddStudentGroup(StudentGroup studentGroup);
+    Task<bool> DeleteStudentGroup(int id);
+    Task<bool> UpdateStudentGroup(StudentGroup studentGroup);
+    Task<StudentGroup> GetStudentGroup(int id);
+    Task<List<StudentGroup>> GetStudentGroups();
+    Task<int> GetAllStartDates();
 }

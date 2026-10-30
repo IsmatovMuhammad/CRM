@@ -7,45 +7,39 @@ namespace Application.Service;
 public class StudentGroupService(StudentGroupRepository repository) : IStudentGroupService
 {
     private StudentGroupRepository studRepo = repository;
-    public void AddStudentGroup(StudentGroup studentGroup)
+    public async Task AddStudentGroup(StudentGroup studentGroup)
     {
-        var group = studRepo.AddStudentGroup(studentGroup);
+        var group = await studRepo.AddStudentGroup(studentGroup);
         if(group) System.Console.WriteLine("Added Successfully !!");
         else System.Console.WriteLine("Sameting wrong !!");
     }
 
-    public void DeleteStudentGroup(int id)
+    public async Task DeleteStudentGroup(int id)
     {
-        var group = studRepo.DeleteStudentGroup(id);
+        var group = await studRepo.DeleteStudentGroup(id);
         if(group) System.Console.WriteLine("Deleted Successfully !!");
         else System.Console.WriteLine("Sameting wrong !!");
     }
 
-    public void GetAllStartDates()
+    public async Task GetAllStartDates()
     {
-        var group = studRepo.GetAllStartDates();
-        System.Console.WriteLine(group);
+        await studRepo.GetAllStartDates();
     }
 
 
-    public void GetStudentGroup(int id)
+    public async Task GetStudentGroup(int id)
     {
-        var s = studRepo.GetStudentGroup(id);
-        System.Console.WriteLine(s.StudentGroupId+" | "+s.StudentId+" | "+s.GroupId+" | "+s.Status);
+        await studRepo.GetStudentGroup(id);
     }
 
-    public void GetStudentGroups()
+    public async Task GetStudentGroups()
     {
-        var stud = studRepo.GetStudentGroups();
-        foreach (var s in stud)
-        {
-            System.Console.WriteLine(s.StudentGroupId+" | "+s.StudentId+" | "+s.GroupId+" | "+s.Status);
-        }
+        await studRepo.GetStudentGroups();
     }
 
-    public void UpdateStudentGroup(StudentGroup studentGroup)
+    public async Task UpdateStudentGroup(StudentGroup studentGroup)
     {
-        var group = studRepo.UpdateStudentGroup(studentGroup);
+        var group = await studRepo.UpdateStudentGroup(studentGroup);
         if(group) System.Console.WriteLine("Updated Successfully !!");
         else System.Console.WriteLine("Sameting wrong !!");
     }

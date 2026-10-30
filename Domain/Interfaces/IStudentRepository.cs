@@ -4,12 +4,12 @@ namespace Domain.Interfaces;
 
 public interface IStudentRepository
 {
-    bool AddStudent(Student student);
-    bool UpdateStudent(Student student);
-    bool DeleteStudent(int id);
-    Student GetStudent(int id);
-    List<Student> GetStudents();
-    int GetTotalStudentsCount();
-    List<StudentGroup> GetStudentsWithGroups();
-    List<StudentGroup> GetStudentsWithoutGroups();
+    Task<bool> AddStudentAsync(Student student);
+    Task<bool> UpdateStudentAsync(Student student);
+    Task<bool> DeleteStudentAsync(int id);
+    Task<Student> GetStudentAsync(int id);
+    Task<List<Student>> GetStudentsAsync();
+    Task<int> GetTotalStudentsCountAsync();
+    Task<List<StudentGroup>> GetStudentsWithGroupsAsync();
+    Task<List<StudentGroup>> GetStudentsWithoutGroupsAsync();
 }

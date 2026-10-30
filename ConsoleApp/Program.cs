@@ -25,12 +25,12 @@ while (true)
     switch (option)
     {
         case "1":
-            studentRepo.GetStudents();
+            studentRepo.GetStudentsAsync();
             break;
         case "2":
             System.Console.Write("Enter id: ");
             var student_id = Convert.ToInt32(Console.ReadLine());
-            studentRepo.GetStudent(student_id);
+            studentRepo.GetStudentAsync(student_id);
             break;
         case "3":
             System.Console.Write("Enter fullname: ");
@@ -48,7 +48,7 @@ while (true)
                 Phone = phone,
                 EnrollmentDate = DateOnly.FromDateTime(enrollmentDate)
             };
-            studentRepo.AddStudent(student);
+            studentRepo.AddStudentAsync(student);
             break;
         case "4":
             System.Console.Write("Enter id: ");
@@ -69,12 +69,12 @@ while (true)
                 Phone = uPhone,
                 EnrollmentDate = DateOnly.FromDateTime(uEnrollmentDate)
             };
-            studentRepo.UpdateStudent(uStudent);
+            studentRepo.UpdateStudentAsync(uStudent);
             break;
         case "5":
             System.Console.Write("Enter id: ");
             var dStudentId = Convert.ToInt32(Console.ReadLine());
-            studentRepo.DeleteStudent(dStudentId);
+            studentRepo.DeleteStudentAsync(dStudentId);
             break;
         case "0":
             System.Console.WriteLine("Exiting ...");

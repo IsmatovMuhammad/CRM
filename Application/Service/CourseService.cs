@@ -8,45 +8,39 @@ namespace Application.Service;
 public class CourseService(CourseRepository courserepo) : ICourseService
 {
     private CourseRepository course1 = courserepo;
-    public void AddCourse(Course course)
+    public async Task AddCourse(Course course)
     {
-        var conn = course1.AddCourse(course);
+        var conn = await course1.AddCourseAsync(course);
         if(conn) System.Console.WriteLine("Added successfully !!");
         else System.Console.WriteLine("Sameting wrongs !!");
     }
 
-    public void DeleteCourse(int id)
+    public async Task DeleteCourse(int id)
     {
-        var conn = course1.DeleteCourse(id);
+        var conn = await course1.DeleteCourseAsync(id);
         if(conn) System.Console.WriteLine("Deleted Successfully !!");
         else System.Console.WriteLine("Sameting wrongs !!");
     }
 
-    public void GetCourse(int id)
+    public async Task GetCourse(int id)
     {
-        var conn = course1.GetCourse(id);
-        System.Console.WriteLine(conn.CourseId+" | "+conn.Title+" | "+conn.Description+" | "+conn.DurationWeeks);
+        await course1.GetCourseAsync(id);
     }
 
-    public void GetCourses()
+    public async Task GetCourses()
     {
-        var conn = course1.GetCourses();
-        foreach (var i in conn)
-        {
-            System.Console.WriteLine(i.CourseId+" | "+i.Title+" | "+i.Description+" | "+i.DurationWeeks);
-        }
+        await course1.GetCoursesAsync();
     }
 
-    public void GetTotalCoursesCount()
+    public async Task GetTotalCoursesCount()
     {
-        var count = course1.GetTotalCoursesCount();
-        System.Console.WriteLine(count);
+        await course1.GetTotalCoursesCountAsync();
     }
 
 
-    public void UpdateCourse(Course course)
+    public async Task UpdateCourse(Course course)
     {
-        var conn = course1.UpdateCourse(course);
+        var conn = await course1.UpdateCourseAsync(course);
         if(conn) System.Console.WriteLine("Update Successfully !!");
         else System.Console.WriteLine("Sameting wrongs !!");
     }

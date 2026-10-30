@@ -4,10 +4,10 @@ namespace Domain.Interfaces;
 
 public interface ICourseRepository
 {
-    bool AddCourse(Course course);
-    bool DeleteCourse(int id);
-    bool UpdateCourse(Course course);
-    Course GetCourse(int id);
-    List<Course> GetCourses();
-    int GetTotalCoursesCount();
+    Task<bool> AddCourseAsync(Course course);
+    Task<bool> DeleteCourseAsync(int id);
+    Task<bool> UpdateCourseAsync(Course course);
+    Task<Course> GetCourseAsync(int id);
+    Task<List<Course>> GetCoursesAsync();
+    Task<int> GetTotalCoursesCountAsync();
 }

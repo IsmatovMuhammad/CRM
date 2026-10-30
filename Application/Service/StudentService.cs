@@ -9,45 +9,40 @@ namespace Application.Service;
 public class StudentService(StudentRepository studentRepository) : IStudentService
 {
     private StudentRepository studrepo = studentRepository;
-    public void AddStudent(Student student)
+    public async Task AddStudent(Student student)
     {
-        var result = studrepo.AddStudent(student);
+        var result = await studrepo.AddStudentAsync(student);
         if(result) System.Console.WriteLine("Added successfully !!");
         else System.Console.WriteLine("Someting wrongs !!");
     }
 
-    public void DeleteStudent(int id)
+    public async Task DeleteStudent(int id)
     {
-        var result = studrepo.DeleteStudent(id);
+        var result = await studrepo.DeleteStudentAsync(id);
         if(result) System.Console.WriteLine("Delete successfully !!");
         else System.Console.WriteLine("Sometings wrongs !!");
     }
 
-    public void GetStudent(int id)
+    public async Task GetStudent(int id)
     {
-        var s = studrepo.GetStudent(id);
-        System.Console.WriteLine(s.StudentId+" | "+s.Fullname+" | "+s.Email+" | "+s.EnrollmentDate);
+        await studrepo.GetStudentAsync(id);
     }
 
-    public void GetStudents()
+    public async Task GetStudents()
     {
-        var s = studrepo.GetStudents();
-        foreach (var i in s)
-        {
-            System.Console.WriteLine(i.StudentId+" | "+i.Fullname+" | "+i.Email+" | "+i.EnrollmentDate);
-        }
+        await studrepo.GetStudentsAsync();
     }
 
-    public void GetTotalStudentsCount()
+    public async Task GetTotalStudentsCount()
     {
-        var count = studrepo.GetTotalStudentsCount();
+        var count = await studrepo.GetTotalStudentsCountAsync();
         System.Console.WriteLine(count);
     }
 
 
-    public void UpdateStudent(Student student)
+    public async Task UpdateStudent(Student student)
     {
-        var s = studrepo.UpdateStudent(student);
+        var s = await studrepo.UpdateStudentAsync(student);
         if(s) System.Console.WriteLine("Update Succassfylly !!");
         else System.Console.WriteLine("Someting wrong !!");
     }

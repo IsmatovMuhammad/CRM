@@ -9,51 +9,51 @@ public class StudentRepository(DataBase dataBase) : IStudentRepository
 {
     private DataBase data1 = dataBase;
 
-    public bool AddStudent(Student student)
+    public async Task<bool> AddStudentAsync(Student student)
     {
         using var conn = data1.Connection();
         conn.Open();
 
         var query = "intsert into students(fullname, email, phone, enrollmentdate)values(@fullname, @email, @phone, @enrollmentdate)";
 
-        var stud = conn.Execute(query, student);
-        return stud > 0;
+        var stud = await conn.ExecuteAsync(query, student);
+        return stud>0;
     }
 
-    public bool DeleteStudent(int id)
+    public async Task<bool> DeleteStudentAsync(int id)
     {
         using var conn = data1.Connection();
         conn.Open();
 
         var query = "delete from students where id = @id";
 
-        var stud = conn.Execute(query, new{id});
+        var stud = await conn.ExecuteAsync(query, new{id});
         return stud > 0;
     }
 
-    public Student GetStudent(int id)
+    public async Task<Student> GetStudentAsync(int id)
     {
         using var conn = data1.Connection();
         conn.Open();
 
         var query = "select * from students where id = @id";
 
-        var stud = conn.QuerySingleOrDefault<Student>(query, new{id});
+        var stud = await conn.QuerySingleAsync<Student>(query, new{id});
         return stud;
     }
 
-    public List<Student> GetStudents()
+    public async Task<List<Student>> GetStudentsAsync()
     {
         using var conn = data1.Connection();
         conn.Open();
 
         var query = "select * from students";
 
-        var stud = conn.Query<Student>(query).ToList();
-        return stud;
+        var stud = await conn.QueryAsync<Student>(query);
+        return stud.ToList();
     }
 
-    public List<StudentGroup> GetStudentsWithGroups()
+    public async Task<List<StudentGroup>> GetStudentsWithGroupsAsync()
     {
         using var conn = data1.Connection();
         conn.Open();
@@ -62,11 +62,11 @@ public class StudentRepository(DataBase dataBase) : IStudentRepository
         join studentgroups sg on sg.studentid = s.studentid 
         join groups g on g.groupid = sg.groupid";
 
-        var student = conn.Query<StudentGroup>(query).ToList();
-        return student;
+        var student = await conn.QueryAsync<StudentGroup>(query);
+        return student.ToList();
     }
 
-    public List<StudentGroup> GetStudentsWithoutGroups()
+    public async Task<List<StudentGroup>> GetStudentsWithoutGroupsAsync()
     {
         using var conn = data1.Connection();
         conn.Open();
@@ -76,22 +76,22 @@ public class StudentRepository(DataBase dataBase) : IStudentRepository
         left join groups g on g.groupid = sg.groupid
         where sg.studentid is null";
 
-        var student = conn.Query<StudentGroup>(query).ToList();
-        return student;
+        var student = await conn.QueryAsync<StudentGroup>(query);
+        return student.ToList();
     }
 
-    public int GetTotalStudentsCount()
+    public async Task<int> GetTotalStudentsCountAsync()
     {
         using var conn = data1.Connection();
         conn.Open();
 
         var query = "select count(*) from students";
-        var student = conn.ExecuteScalar<int>(query);
+        var student = await conn.ExecuteAsync(query);
         return student;
     }
 
 
-    public bool UpdateStudent(Student student)
+    public async Task<bool> UpdateStudentAsync(Student student)
     {
         using var conn = data1.Connection();
         conn.Open();
