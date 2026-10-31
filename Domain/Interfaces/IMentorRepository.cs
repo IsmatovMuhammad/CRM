@@ -11,4 +11,6 @@ public interface IMentorRepository
     Task<Mentor> GetMentor(int id);
     Task<List<Mentor>> GetMentors();
     Task<int> GetTotalMentorsCount();
+    Task<Mentor> GetMentorWithMostStudents();
+    Task<List<Mentor>> GetMentorsWithMultipleCourses();
 }

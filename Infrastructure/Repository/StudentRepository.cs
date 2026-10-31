@@ -31,6 +31,30 @@ public class StudentRepository(DataBase dataBase) : IStudentRepository
         return stud > 0;
     }
 
+    public async Task<List<StudentGroup>> GetDroppedOutStudents()
+    {
+        using var conn = data1.Connection();
+
+        var query = @"select s.fullname, sg.status from student s
+        join studentgroups sg on s.studentid = sg.studentid
+        where sg.status = left";
+
+        var stud = await conn.QueryAsync<StudentGroup>(query);
+        return stud.ToList();
+    }
+
+    public async Task<List<StudentGroup>> GetGraduatedStudents()
+    {
+        using var conn = data1.Connection();
+
+        var query = @"select s.fullname, sg.status from student s
+        join studentgroups sg on s.studentid = sg.studentid
+        where sg.status = fineshed";
+
+        var stud = await conn.QueryAsync<StudentGroup>(query);
+        return stud.ToList();
+    }
+
     public async Task<Student> GetStudentAsync(int id)
     {
         using var conn = data1.Connection();

@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices;
 using Dapper;
 using Domain.Interfaces;
 using Domain.Models;
@@ -42,6 +43,54 @@ public class CourseRepository(DataBase dataBase) : ICourseRepository
         var query = "select * from courses";
         var cours = await conn.QueryAsync<Course>(query);
         return cours.ToList();
+    }
+
+    public async Task<int> GetLeastPopularCourses()
+    {
+        using var conn = data.Connection();
+        conn.Open();
+
+        var query = @"select c.* from courses c
+        join groups g on c.courseid = g.courseid
+        join studentgroups sg on sg.groupid = g.groupid
+        join students s on s.studentid = sg.studentid
+        order by students asc
+        limit 3";
+
+        var cours = await conn.ExecuteAsync(query);
+        return cours;
+    }
+
+
+    public async Task<int> GetStudentsPerCourse()
+    {
+        using var conn = data.Connection();
+        conn.Open();
+
+        var query = @"select c.title, count(s.*) from courses c
+        join groups g on c.courseid = g.courseid
+        join studentgroups sg on sg.groupid = g.groupid
+        join students s on s.studentid = sg.studentid
+        group by c.courseid, c.title";
+
+        var cours = await conn.ExecuteAsync(query);
+        return cours;
+    }
+
+    public async Task<int> GetTopThreeCourses()
+    {
+        using var conn = data.Connection();
+        conn.Open();
+
+        var query = @"select c.* from courses c
+        join groups g on c.courseid = g.courseid
+        join studentgroups sg on sg.groupid = g.groupid
+        join students s on s.studentid = sg.studentid
+        order by students desc
+        limit 3";
+
+        var gru = await conn.ExecuteAsync(query);
+        return gru;
     }
 
     public async Task<int> GetTotalCoursesCountAsync()

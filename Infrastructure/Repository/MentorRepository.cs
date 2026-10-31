@@ -45,6 +45,39 @@ public class MentorRepository(DataBase dataBase) : IMentorRepository
         return mento.ToList();
     }
 
+    public async Task<List<Mentor>> GetMentorsWithMultipleCourses()
+    {
+        using var conn = data.Connection();
+        conn.Open();
+
+        var query = @"select m.* from mentors m
+        join group g on g.mentorid = m.mentorid
+        group by m.mentorid
+        having count(distinct g.courseid) > 1";
+
+        var mento = await conn.QueryAsync<Mentor>(query);
+        return mento.ToList();
+    }
+
+
+    public async Task<Mentor> GetMentorWithMostStudents()
+    {
+        using var conn = data.Connection();
+        conn.Open();
+
+        var query = @"select m.mentorid, m.fullname, count(sg.studentid) as count from mentors m 
+        join groups g on g.mentorid = m.mentorid
+        join studentgroups sg on sg.groupid = g.groupid
+        join students s on sg.studentid = s.studentid
+        group by s.studentid
+        order by count desc
+        limit 1";
+
+        var mento = await conn.QuerySingleAsync(query);
+        return mento;
+    }
+
+
     public async Task<int> GetTotalMentorsCount()
     {
         using var conn = data.Connection();

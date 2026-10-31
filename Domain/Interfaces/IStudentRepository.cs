@@ -12,4 +12,6 @@ public interface IStudentRepository
     Task<int> GetTotalStudentsCountAsync();
     Task<List<StudentGroup>> GetStudentsWithGroupsAsync();
     Task<List<StudentGroup>> GetStudentsWithoutGroupsAsync();
+    Task<List<StudentGroup>> GetDroppedOutStudents();
+    Task<List<StudentGroup>> GetGraduatedStudents();
 }

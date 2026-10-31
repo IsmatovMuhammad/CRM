@@ -10,4 +10,7 @@ public interface ICourseRepository
     Task<Course> GetCourseAsync(int id);
     Task<List<Course>> GetCoursesAsync();
     Task<int> GetTotalCoursesCountAsync();
+    Task<int> GetStudentsPerCourse();
+    Task<int> GetLeastPopularCourses();
+    Task<int> GetTopThreeCourses();
 }

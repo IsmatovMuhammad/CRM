@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\class\\ConsoleApp\\ConsoleApp.csproj": {}
+    "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\CRM\\ConsoleApp\\ConsoleApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\class\\Application\\Application.csproj": {
+    "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\CRM\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\class\\Application\\Application.csproj",
+        "projectUniqueName": "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\CRM\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\class\\Application\\Application.csproj",
+        "projectPath": "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\CRM\\Application\\Application.csproj",
         "packagesPath": "C:\\Users\\Мухаммад\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\class\\Application\\obj\\",
+        "outputPath": "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\CRM\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Мухаммад\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -29,11 +29,11 @@
             "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\class\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\class\\Domain\\Domain.csproj"
+              "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\CRM\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\CRM\\Domain\\Domain.csproj"
               },
-              "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\class\\Infrastructure\\Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\class\\Infrastructure\\Infrastructure.csproj"
+              "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\CRM\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\CRM\\Infrastructure\\Infrastructure.csproj"
               }
             }
           }
@@ -348,14 +348,14 @@
         }
       }
     },
-    "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\class\\ConsoleApp\\ConsoleApp.csproj": {
+    "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\CRM\\ConsoleApp\\ConsoleApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\class\\ConsoleApp\\ConsoleApp.csproj",
+        "projectUniqueName": "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\CRM\\ConsoleApp\\ConsoleApp.csproj",
         "projectName": "ConsoleApp",
-        "projectPath": "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\class\\ConsoleApp\\ConsoleApp.csproj",
+        "projectPath": "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\CRM\\ConsoleApp\\ConsoleApp.csproj",
         "packagesPath": "C:\\Users\\Мухаммад\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\class\\ConsoleApp\\obj\\",
+        "outputPath": "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\CRM\\ConsoleApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Мухаммад\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -373,14 +373,14 @@
             "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\class\\Application\\Application.csproj": {
-                "projectPath": "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\class\\Application\\Application.csproj"
+              "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\CRM\\Application\\Application.csproj": {
+                "projectPath": "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\CRM\\Application\\Application.csproj"
               },
-              "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\class\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\class\\Domain\\Domain.csproj"
+              "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\CRM\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\CRM\\Domain\\Domain.csproj"
               },
-              "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\class\\Infrastructure\\Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\class\\Infrastructure\\Infrastructure.csproj"
+              "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\CRM\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\CRM\\Infrastructure\\Infrastructure.csproj"
               }
             }
           }
@@ -695,14 +695,14 @@
         }
       }
     },
-    "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\class\\Domain\\Domain.csproj": {
+    "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\CRM\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\class\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\CRM\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\class\\Domain\\Domain.csproj",
+        "projectPath": "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\CRM\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\Мухаммад\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\class\\Domain\\obj\\",
+        "outputPath": "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\CRM\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Мухаммад\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1032,14 +1032,14 @@
         }
       }
     },
-    "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\class\\Infrastructure\\Infrastructure.csproj": {
+    "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\CRM\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\class\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\CRM\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\class\\Infrastructure\\Infrastructure.csproj",
+        "projectPath": "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\CRM\\Infrastructure\\Infrastructure.csproj",
         "packagesPath": "C:\\Users\\Мухаммад\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\class\\Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\CRM\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Мухаммад\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1057,8 +1057,8 @@
             "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\class\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\class\\Domain\\Domain.csproj"
+              "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\CRM\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\CRM\\Domain\\Domain.csproj"
               }
             }
           }
