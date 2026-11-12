@@ -3,6 +3,7 @@ using Application.Service;
 using Domain.Interfaces;
 using Infrastructure.Data;
 using Infrastructure.Repository;
+using WebAPI.Middle;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -38,5 +39,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.MapControllers();
+
+app.UseMiddleware<RequestLoggingMiddle>();
 
 app.Run();
