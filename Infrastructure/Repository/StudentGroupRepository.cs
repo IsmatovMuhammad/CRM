@@ -1,4 +1,4 @@
-using Dapper;
+    using Dapper;
 using Domain.Interfaces;
 using Domain.Models;
 using Infrastructure.Data;
@@ -21,7 +21,7 @@ public class StudentGroupRepository(DataBase dataBase) : IStudentGroupRepository
     {
         using var conn = data.Connection();
         conn.Open();
-        var query = "delete from studentgroups where id = @id";
+        var query = "delete from studentgroups where studentgroupid = @id";
         var mento = await conn.ExecuteAsync(query, new{id});
         return mento > 0;
     }
@@ -40,7 +40,7 @@ public class StudentGroupRepository(DataBase dataBase) : IStudentGroupRepository
     {
         using var conn = data.Connection();
         conn.Open();
-        var query = "select * from studentgroups where id = @id";
+        var query = "select * from studentgroups where studentgroupid = @id";
         var mento = await conn.QuerySingleAsync<StudentGroup>(query, id);
         return mento;
     }
@@ -49,7 +49,7 @@ public class StudentGroupRepository(DataBase dataBase) : IStudentGroupRepository
     {
         using var conn = data.Connection();
         conn.Open();
-        var query = "select * from";
+        var query = "select * from studentgroups";
         var mento = await conn.QueryAsync<StudentGroup>(query);
         return mento.ToList();
     }
@@ -58,7 +58,7 @@ public class StudentGroupRepository(DataBase dataBase) : IStudentGroupRepository
     {
         using var conn = data.Connection();
         conn.Open();
-        var query = "update studentgroup set studentid = @studentid, groupid = @gruopid, status = @status";
+        var query = "update studentgroup set studentid = @studentid, groupid = @gruopid, status = @status where studentgroup = @id";
         var mento = await conn.ExecuteAsync(query, studentGroup);
         return mento > 0;
     }

@@ -1,8 +1,8 @@
 namespace Domain.Models;
 
-public class Group
+public class Groups
 {
-    public int GroupId { get; set; }
+    public int GroupsId { get; set; }
     public string GroupName { get; set; } = null!;
     public int CourseId { get; set; }
     public int MentorId { get; set; }

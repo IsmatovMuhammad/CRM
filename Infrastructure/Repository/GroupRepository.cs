@@ -2,6 +2,7 @@ using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using Dapper;
 using Domain.Interfaces;
+using Domain.Models;
 using Infrastructure.Data;
 
 namespace Infrastructure.Repository;
@@ -9,7 +10,7 @@ namespace Infrastructure.Repository;
 public class GroupRepository(DataBase data1) : IGroupRepository
 {
     private DataBase data = data1;
-    public async Task<bool> AddGroupAsync(Group group)
+    public async Task<bool> AddGroupAsync(Groups group)
     {
         using var conn = data.Connection();
         conn.Open();
@@ -46,7 +47,7 @@ public class GroupRepository(DataBase data1) : IGroupRepository
     }
 
 
-    public async Task<Group> GetGroup(int id)
+    public async Task<Groups> GetGroup(int id)
     {
         using var conn = data.Connection();
         conn.Open();
@@ -56,13 +57,13 @@ public class GroupRepository(DataBase data1) : IGroupRepository
         return gru;
     }
 
-    public async Task<List<Group>> GetGroups()
+    public async Task<List<Groups>> GetGroups()
     {
         using var conn = data.Connection();
         conn.Open();
 
         var query = "select * from groups";
-        var gru = await conn.QueryAsync<Group>(query);
+        var gru = await conn.QueryAsync<Groups>(query);
         return gru.ToList();
     }
 
@@ -80,7 +81,7 @@ public class GroupRepository(DataBase data1) : IGroupRepository
     }
 
 
-    public async Task<bool> UpdateGroupAsync(Group group)
+    public async Task<bool> UpdateGroupAsync(Groups group)
     {
         using var conn = data.Connection();
 

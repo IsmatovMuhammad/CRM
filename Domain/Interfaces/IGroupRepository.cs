@@ -1,14 +1,16 @@
 using System.Text.RegularExpressions;
+using Domain.Models;
 
 namespace Domain.Interfaces;
 
 public interface IGroupRepository
 {
-    Task<bool> AddGroupAsync(Group group);
+    Task<bool> AddGroupAsync(Groups group);
     Task<bool> DeleteGroupAsync(int id);
-    Task<bool> UpdateGroupAsync(Group group);
-    Task<Group> GetGroup(int id);
-    Task<List<Group>> GetGroups();
+    Task<bool> UpdateGroupAsync(Groups group);
+    Task<Groups> GetGroup(int id);
+    Task<List<Groups>> GetGroups();
     Task<int> GetStudentsPerGroup();
     Task<int> GetEmptyGroups();
+
 }

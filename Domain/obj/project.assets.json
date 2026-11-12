@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\CRM\\Domain\\Domain.csproj",
+      "projectUniqueName": "C:\\Users\\Мухаммад\\Desktop\\CRM\\Domain\\Domain.csproj",
       "projectName": "Domain",
-      "projectPath": "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\CRM\\Domain\\Domain.csproj",
+      "projectPath": "C:\\Users\\Мухаммад\\Desktop\\CRM\\Domain\\Domain.csproj",
       "packagesPath": "C:\\Users\\Мухаммад\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Мухаммад\\Desktop\\Week4\\day3\\CRM\\Domain\\obj\\",
+      "outputPath": "C:\\Users\\Мухаммад\\Desktop\\CRM\\Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Мухаммад\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -69,7 +69,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.403/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.404/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.CSharp": "(,4.7.32767]",
           "Microsoft.VisualBasic": "(,10.4.32767]",

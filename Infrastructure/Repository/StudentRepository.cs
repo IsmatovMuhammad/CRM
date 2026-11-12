@@ -14,7 +14,7 @@ public class StudentRepository(DataBase dataBase) : IStudentRepository
         using var conn = data1.Connection();
         conn.Open();
 
-        var query = "intsert into students(fullname, email, phone, enrollmentdate)values(@fullname, @email, @phone, @enrollmentdate)";
+        var query = "insert into students(fullname, email, phone, enrollmentdate)values(@fullname, @email, @phone, @enrollmentdate)";
 
         var stud = await conn.ExecuteAsync(query, student);
         return stud>0;
@@ -25,7 +25,7 @@ public class StudentRepository(DataBase dataBase) : IStudentRepository
         using var conn = data1.Connection();
         conn.Open();
 
-        var query = "delete from students where id = @id";
+        var query = "delete from students where studentid = @id";
 
         var stud = await conn.ExecuteAsync(query, new{id});
         return stud > 0;
@@ -60,7 +60,7 @@ public class StudentRepository(DataBase dataBase) : IStudentRepository
         using var conn = data1.Connection();
         conn.Open();
 
-        var query = "select * from students where id = @id";
+        var query = "select * from students where studentid = @id";
 
         var stud = await conn.QuerySingleAsync<Student>(query, new{id});
         return stud;
@@ -120,7 +120,7 @@ public class StudentRepository(DataBase dataBase) : IStudentRepository
         using var conn = data1.Connection();
         conn.Open();
 
-        var query = "update students set fullname = @fullname, email = @email, phone = @phone, enrollmentdate = @enrollmentdate where id = @id";
+        var query = "update students set fullname = @fullname, email = @email, phone = @phone, enrollmentdate = @enrollmentdate where studentid = @id";
         var stud = conn.Execute(query, student);
         return stud > 0;
     }

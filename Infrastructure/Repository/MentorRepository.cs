@@ -22,7 +22,7 @@ public class MentorRepository(DataBase dataBase) : IMentorRepository
     {
         using var conn = data.Connection();
         conn.Open();
-        var query = "delete from mentors where id = @id";
+        var query = "delete from mentors where mentorid = @id";
         var mento = await conn.ExecuteAsync(query, new{id});
         return mento > 0;
     }
@@ -31,7 +31,7 @@ public class MentorRepository(DataBase dataBase) : IMentorRepository
     {
         using var conn = data.Connection();
         conn.Open();
-        var query = "select * from mentors where id = @id";
+        var query = "select * from mentors where mentorid = @id";
         var mento = await conn.QuerySingleAsync<Mentor>(query, new{id});
         return mento;
     }
@@ -51,9 +51,9 @@ public class MentorRepository(DataBase dataBase) : IMentorRepository
         conn.Open();
 
         var query = @"select m.* from mentors m
-        join group g on g.mentorid = m.mentorid
-        group by m.mentorid
-        having count(distinct g.courseid) > 1";
+                  join groups g on g.mentorid = m.mentorid
+                  group by m.mentorid
+                  having count(distinct g.courseid) > 1";
 
         var mento = await conn.QueryAsync<Mentor>(query);
         return mento.ToList();
@@ -65,15 +65,15 @@ public class MentorRepository(DataBase dataBase) : IMentorRepository
         using var conn = data.Connection();
         conn.Open();
 
-        var query = @"select m.mentorid, m.fullname, count(sg.studentid) as count from mentors m 
+        var query = @"select m.*, count(distinct sg.studentid) as student_count 
+        from mentors m 
         join groups g on g.mentorid = m.mentorid
         join studentgroups sg on sg.groupid = g.groupid
-        join students s on sg.studentid = s.studentid
-        group by s.studentid
-        order by count desc
+        group by m.mentorid
+        order by student_count desc
         limit 1";
 
-        var mento = await conn.QuerySingleAsync(query);
+        var mento = await conn.QueryFirstOrDefaultAsync<Mentor>(query);
         return mento;
     }
 
@@ -83,7 +83,7 @@ public class MentorRepository(DataBase dataBase) : IMentorRepository
         using var conn = data.Connection();
         conn.Open();
         var query = "select count(*) from mentors";
-        var mento = await conn.ExecuteAsync(query);
+        var mento = await conn.ExecuteScalarAsync<int>(query);
         return mento;
     }
 
@@ -92,7 +92,7 @@ public class MentorRepository(DataBase dataBase) : IMentorRepository
     {
         using var conn = data.Connection();
         conn.Open();
-        var query = "update mentors set fullname = @fullname, email = @email, phone = @phone, specialization = @specialization";
+        var query = "update mentors set fullname = @fullname, email = @email, phone = @phone, specialization = @specialization where mentorid = @mentorid";
         var mento = await conn.ExecuteAsync(query, mentor);
         return mento > 0;
     }
